@@ -1,0 +1,20 @@
+{
+	"name": "shape-detector",
+	"version": "0.1.0",
+	"homepage": "http://github.com/MathieuLoutre/shape-detector/",
+	"authors": [
+		"Mathieu Triay <mathieu.triay@gmail.com>"
+	],
+	"description": "Shape/gesture/stroke detection/recognition algorithm based on the $1 (dollar) Recognizer",
+	"main": ["index.js"],
+	"keywords": [
+		"shape",
+		"detection",
+		"recognition",
+		"recogniser",
+		"detector",
+		"stroke",
+		"gesture"
+	],
+	"license": "MIT"
+}

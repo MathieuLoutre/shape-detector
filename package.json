@@ -1,0 +1,12 @@
+{
+	"name": "shape-detector",
+	"title": "Shape Detector",
+	"description": "Shape/gesture/stroke detection/recognition algorithm based on the $1 (dollar) Recognizer",
+	"author": "Mathieu Triay",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MathieuLoutre/shape-detector.git"
+	},
+	"homepage": "http://github.com/MathieuLoutre/shape-detector/",
+	"version": "0.1.0"
+}
