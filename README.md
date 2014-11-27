@@ -28,13 +28,16 @@ Or just by downloading the [tarball](https://github.com/MathieuLoutre/shape-dete
 
 	detector.spot(stroke, 'circle') // will look for both circle and circle 2 and return the closest
 
+	// ShapeDetector can also take options
+	// nbSamplePoints is 64 by default and potentially improves accuracy
+	// threshold by default is 0, a higher number will be less forgiving of wonky shapes
+	detector = ShapeDetector(ShapeDetector.defaultShapes, { nbSamplePoints: 128, threshold: 0.8 })
+
 ```
 
 ## TODO
 
 - Testing
-- set score threshold
-- set number of sample points
 - Integrate $P
 
 ## Changelog
