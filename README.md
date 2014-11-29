@@ -42,4 +42,4 @@ Or just by downloading the [tarball](https://github.com/MathieuLoutre/shape-dete
 
 ## Changelog
 
-- 0.1.0 - First release
+- 0.2.0 - First release
