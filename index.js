@@ -24,7 +24,7 @@
 		return d * Math.PI / 180.0;
 	};
 
-	function distance (a, b) {
+	function getDistance (a, b) {
 
 		var dx = b.x - a.x;
 		var dy = b.y - a.y;
@@ -37,7 +37,7 @@
 		this.points = points;
 		this.name = name;
 		this.processStroke();
-	}
+	};
 
 	Stroke.prototype.processStroke = function () {
 
@@ -59,7 +59,7 @@
 		var newPoints = [this.points[0]];
 
 		for (var i = 1; i < this.points.length; i++) {
-			localDistance = this.distance(i);
+			localDistance = getDistance(this.points[i - 1], this.points[i]);
 
 			if (distance + localDistance >= interval) {
 				q = {
@@ -118,8 +118,8 @@
 			
 			box.minX = Math.min(box.minX, point.x);
 			box.minY = Math.min(box.minY, point.y);
-			box.maxX = Math.max(box.minX, point.x);
-			box.maxY = Math.max(box.minY, point.y);
+			box.maxX = Math.max(box.maxX, point.x);
+			box.maxY = Math.max(box.maxY, point.y);
 		}
 
 		box.width = box.maxX - box.minX;
@@ -177,7 +177,7 @@
 
 	Stroke.prototype.indicativeAngle = function () {
 
-		return Math.atan2(this.c.y - this.points[0].y, this.c.y - this.points[0].y);
+		return Math.atan2(this.c.y - this.points[0].y, this.c.x - this.points[0].x);
 	};
 
 	Stroke.prototype.strokeLength = function () {
@@ -185,15 +185,10 @@
 		var d = 0.0;
 
 		for (var i = 1; i < this.points.length; i++) {
-			d += this.distance(i);
+			d += getDistance(this.points[i - 1], this.points[i]);
 		}
 
 		return d;
-	};
-
-	Stroke.prototype.distance = function (i) {
-
-		return distance(this.points[i], this.points[i - 1]);
 	};
 
 	Stroke.prototype.distanceAtBestAngle = function (pattern) {
@@ -233,9 +228,7 @@
 		var d = 0.0;
 
 		for (var i = 0; i < strokePoints.length; i++) {
-			point = strokePoints[i];
-
-			d += distance(point, patternPoints[i]);
+			d += getDistance(strokePoints[i], patternPoints[i]);
 		}
 
 		return d / strokePoints.length;
