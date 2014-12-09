@@ -42,4 +42,5 @@ Or just by downloading the [tarball](https://github.com/MathieuLoutre/shape-dete
 
 ## Changelog
 
+- 0.2.1 - Improve default shapes
 - 0.2.0 - First release
